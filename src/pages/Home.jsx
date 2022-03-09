@@ -6,7 +6,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
-export const Tab1 = () => {
+export const Home = () => {
   return (
     <IonPage>
       <IonHeader>
