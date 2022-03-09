@@ -36,7 +36,7 @@ import "./theme/variables.css";
 
 setupIonicReact();
 
-const App: React.FC = () => (
+export const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -72,5 +72,3 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
-
-export default App;
