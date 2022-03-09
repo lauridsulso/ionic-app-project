@@ -4,26 +4,24 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonButton,
 } from "@ionic/react";
+import { AddTaskForm } from "../components/AddTaskForm";
 
-export const Home = () => {
+export const AddTask = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>New Task</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
+            <IonTitle size="large">New task</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonButton href="/addTask" color="success" expand="full">
-          Add a task
-        </IonButton>
+        <AddTaskForm />
       </IonContent>
     </IonPage>
   );

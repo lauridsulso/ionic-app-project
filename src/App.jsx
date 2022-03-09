@@ -14,7 +14,7 @@ import { ellipse, square, triangle } from "ionicons/icons";
 import { Home } from "./pages/Home";
 import { Tasks } from "./pages/Tasks";
 import { Profile } from "./pages/Profile";
-
+import { AddTask } from "./pages/AddTask";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -46,6 +46,9 @@ export const App = () => (
           </Route>
           <Route exact path="/tasks">
             <Tasks />
+          </Route>
+          <Route exact path="/addTask">
+            <AddTask />
           </Route>
           <Route path="/profile">
             <Profile />
