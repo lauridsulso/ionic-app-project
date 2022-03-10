@@ -72,9 +72,11 @@ export const Home = () => {
             <TaskCardItem task={task} key={task.id} />
           ))}
         </IonList>
-        <IonButton href="/addTask" color="success" expand="full">
-          Add a task
-        </IonButton>
+        <div className="ion-padding">
+          <IonButton href="/addTask" type="submit" expand="block">
+            Add a task
+          </IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );

@@ -21,7 +21,9 @@ export const AddTask = () => {
             <IonTitle size="large">New task</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <AddTaskForm />
+        <AddTaskForm
+        // handleSubmit={handleSubmit}
+        />
       </IonContent>
     </IonPage>
   );
