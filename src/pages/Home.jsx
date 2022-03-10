@@ -57,16 +57,15 @@ export const Home = () => {
     <IonPage className="tasks-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>Hjem</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
+            <IonTitle size="large">Hjem</IonTitle>
           </IonToolbar>
         </IonHeader>
-
         <IonList>
           {tasks.map((task) => (
             <TaskCardItem task={task} key={task.id} />
@@ -74,7 +73,7 @@ export const Home = () => {
         </IonList>
         <div className="ion-padding">
           <IonButton href="/addTask" type="submit" expand="block">
-            Add a task
+            Tilføj opgave
           </IonButton>
         </div>
       </IonContent>

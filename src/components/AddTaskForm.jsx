@@ -1,6 +1,14 @@
-import { IonButton, IonInput, IonItem, IonLabel } from "@ionic/react";
+import {
+  IonButton,
+  IonIcon,
+  IonImg,
+  IonInput,
+  IonItem,
+  IonLabel,
+} from "@ionic/react";
 import { useState, useEffect } from "react";
 import { Camera, CameraResultType } from "@capacitor/camera";
+import { camera } from "ionicons/icons";
 
 export const AddTaskForm = ({ task, handleSubmit }) => {
   //  -------- USESTATES for adding task data --------
@@ -50,27 +58,29 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
   return (
     <form onSubmit={submitTask}>
       <IonItem>
-        <IonLabel position="stacked"> Hello is this is title</IonLabel>
+        <IonLabel position="stacked">
+          Skriv en overskrift til din opgave
+        </IonLabel>
         <IonInput
           value={title}
-          placeholder="Type the title of your task"
+          placeholder="Rengøring af 95m2 lejlighed"
           onIonChange={(e) => setTitle(e.target.value)}
         />
       </IonItem>
 
       <IonItem>
-        <IonLabel position="stacked">Hello is this is description</IonLabel>
+        <IonLabel position="stacked">
+          Beskriv din opgave mere detaljeret
+        </IonLabel>
         <IonInput
           value={description}
-          placeholder="Type the description of your task"
+          placeholder="Gulvvask og afstøvning på 3. sal"
           onIonChange={(e) => setDescription(e.target.value)}
         ></IonInput>
       </IonItem>
 
-      {/* PLACE IMAGE HERE------------------------ */}
-
       <IonItem>
-        <IonLabel position="stacked"> Hello is this is date dog</IonLabel>
+        <IonLabel position="stacked">Hvornår skal opgaven løses?</IonLabel>
         <IonInput
           type="date"
           value={date}
@@ -80,25 +90,39 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
       </IonItem>
 
       <IonItem>
-        <IonLabel position="stacked">Hello is this is location dog</IonLabel>
+        <IonLabel position="stacked">Hvorhenne skal opgaven løses?</IonLabel>
         <IonInput
           value={location}
-          placeholder="Type the location of your dogedog"
+          placeholder="Aarhus C"
           onIonChange={(e) => setLocation(e.target.value)}
         />
       </IonItem>
 
       <IonItem>
-        <IonLabel position="stacked">Hello is this is price</IonLabel>
+        <IonLabel position="stacked">
+          Hvor meget betaler opgaven i DKK?
+        </IonLabel>
         <IonInput
+          type="number"
           value={price}
-          placeholder="Type the price of your task"
+          placeholder="400 dkk"
           onIonChange={(e) => setPrice(e.target.value)}
         ></IonInput>
       </IonItem>
+
+      <IonItem onClick={takePicture}>
+        <IonLabel>Vælg billede</IonLabel>
+        <IonButton>
+          <IonIcon icon={camera} />
+        </IonButton>
+      </IonItem>
+      {image && (
+        <IonImg className="ion-padding" src={image} onClick={takePicture} />
+      )}
+
       <div className="ion-padding">
         <IonButton type="submit" expand="block">
-          Create
+          Opret opgave
         </IonButton>
       </div>
     </form>

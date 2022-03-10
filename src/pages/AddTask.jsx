@@ -5,9 +5,23 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { push, set } from "@firebase/database";
+import { tasksRef } from "../firebase-config";
+import { useHistory } from "react-router";
 import { AddTaskForm } from "../components/AddTaskForm";
 
 export const AddTask = () => {
+  const history = useHistory();
+
+  async function handleSubmit(newTask) {
+    newTask.uid = "0"; // default untill authorization
+
+    const newTaskRef = push(tasksRef);
+    await set(newTaskRef, newTask);
+
+    history.replace("/home");
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,9 +35,7 @@ export const AddTask = () => {
             <IonTitle size="large">New task</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <AddTaskForm
-        // handleSubmit={handleSubmit}
-        />
+        <AddTaskForm handleSubmit={handleSubmit} />
       </IonContent>
     </IonPage>
   );

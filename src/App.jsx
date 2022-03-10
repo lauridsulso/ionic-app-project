@@ -15,6 +15,8 @@ import { Home } from "./pages/Home";
 import { Tasks } from "./pages/Tasks";
 import { Profile } from "./pages/Profile";
 import { AddTask } from "./pages/AddTask";
+import { DetailedTask } from "./pages/DetailedTask";
+
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -46,6 +48,9 @@ export const App = () => (
           </Route>
           <Route exact path="/tasks">
             <Tasks />
+          </Route>
+          <Route path="/task/:id">
+            <DetailedTask />
           </Route>
           <Route exact path="/addTask">
             <AddTask />

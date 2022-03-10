@@ -22,7 +22,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // Create database reference
 const database = getDatabase(app);
-// Reference to posts in Realtime DB
+// Reference to tasks in Realtime DB
 export const tasksRef = ref(database, "tasks");
 // Reference to users in Realtime DB
 export const usersRef = ref(database, "users");
+
+// Get reference to specific task using task id
+export function getTaskRef(taskId) {
+  return ref(database, "tasks/" + taskId);
+}
+// Get reference to specific user using user id
+export function getUserRef(userId) {
+  return ref(database, "users/" + userId);
+}

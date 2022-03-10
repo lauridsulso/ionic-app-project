@@ -6,18 +6,18 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
-export const Tasks = () => {
+export const DetailedTask = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Opgaver</IonTitle>
+          <IonTitle>Detaljer om opgaven</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Opgaver</IonTitle>
+            <IonTitle size="large">Er opgaven din?</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>
