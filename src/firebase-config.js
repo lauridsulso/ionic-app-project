@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,6 +27,8 @@ const database = getDatabase(app);
 export const tasksRef = ref(database, "tasks");
 // Reference to users in Realtime DB
 export const usersRef = ref(database, "users");
+//Firebase storage
+export const storage = getStorage(app);
 
 // Get reference to specific task using task id
 export function getTaskRef(taskId) {

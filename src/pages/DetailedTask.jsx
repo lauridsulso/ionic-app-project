@@ -1,24 +1,32 @@
 import {
+  IonAvatar,
+  IonBadge,
+  IonButton,
   IonContent,
   IonHeader,
+  IonIcon,
+  IonImg,
+  IonItem,
   IonPage,
   IonText,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
+import { calendar, call, navigateCircle, pricetag } from "ionicons/icons";
 
 import { useEffect, useState } from "react";
 import { usersRef } from "../firebase-config";
 import { get } from "@firebase/database";
 import { onValue } from "@firebase/database";
 import { tasksRef } from "../firebase-config";
-import { useParams } from "react-router";
-// import { TaskCardItem } from "../components/TaskCardItem";
+import { useHistory, useParams } from "react-router";
 
 export const DetailedTask = () => {
-  const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState();
   const params = useParams();
+  const history = useHistory();
+
+  function goBack() {
+    history.goBack();
+  }
 
   useEffect(() => {
     async function getUsers() {
@@ -51,7 +59,7 @@ export const DetailedTask = () => {
           };
           tasksArray.push(task);
         });
-        setTasks(tasksArray.reverse());
+
         const _task = tasksArray.find((task) => task.id === params.id);
         setTask(_task);
       });
@@ -59,22 +67,62 @@ export const DetailedTask = () => {
 
     listenOnChange();
   }, [params.id]);
-  console.log(tasks);
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Detaljer om opgaven</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Er opgaven din?</IonTitle>
-          </IonToolbar>
+          <IonButton
+            color="light"
+            fill="solid"
+            style={{ position: "absolute", margin: "8px" }}
+            onClick={goBack}
+          >
+            Back
+          </IonButton>
+          <IonImg src={task?.image} />
         </IonHeader>
-        <IonText>{task?.title}</IonText>
+        <IonItem lines="full">
+          <IonAvatar slot="start">
+            <IonImg src={task?.user.image} />
+          </IonAvatar>
+          <IonText>{task?.user.name}</IonText>
+          <IonBadge color="primary" slot="end" style={{ display: "flex" }}>
+            <IonIcon icon={call} style={{ paddingRight: "4px" }} />
+            <IonText>{task?.user.phone}</IonText>
+          </IonBadge>
+        </IonItem>
+        <IonItem lines="none">
+          <IonText color="primary">
+            <h1>{task?.title}</h1>
+          </IonText>
+        </IonItem>
+        <IonItem lines="full">
+          <IonText>
+            <p>{task?.description}</p>
+          </IonText>
+        </IonItem>
+        <IonItem lines="none">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <IonText>
+              <IonIcon icon={pricetag} />
+              {task?.price} kr.
+            </IonText>
+            <IonText>
+              <IonIcon icon={calendar} />
+              {task?.date}
+            </IonText>
+            <IonText>
+              <IonIcon icon={navigateCircle} />
+              {task?.location}
+            </IonText>
+          </div>
+        </IonItem>
       </IonContent>
     </IonPage>
   );
