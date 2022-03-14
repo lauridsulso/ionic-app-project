@@ -73,15 +73,15 @@ export const App = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
             <IonIcon icon={homeOutline} />
-            <IonLabel>Home</IonLabel>
+            <IonLabel>Hjem</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tasks" href="/tasks">
             <IonIcon icon={clipboardOutline} />
-            <IonLabel>Tasks</IonLabel>
+            <IonLabel>Opgaver</IonLabel>
           </IonTabButton>
           <IonTabButton tab="profile" href="/profile">
             <IonIcon icon={personCircleOutline} />
-            <IonLabel>Profile</IonLabel>
+            <IonLabel>Profil</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
