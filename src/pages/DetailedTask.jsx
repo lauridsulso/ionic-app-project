@@ -59,7 +59,6 @@ export const DetailedTask = () => {
 
     listenOnChange();
   }, [params.id]);
-  console.log(tasks);
 
   return (
     <IonPage>

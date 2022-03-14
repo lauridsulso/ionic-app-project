@@ -10,7 +10,15 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { ellipse, square, triangle } from "ionicons/icons";
+import {
+  clipboardOutline,
+  ellipse,
+  home,
+  homeOutline,
+  personCircleOutline,
+  square,
+  triangle,
+} from "ionicons/icons";
 import { Home } from "./pages/Home";
 import { Tasks } from "./pages/Tasks";
 import { Profile } from "./pages/Profile";
@@ -64,15 +72,15 @@ export const App = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
-            <IonIcon icon={triangle} />
+            <IonIcon icon={homeOutline} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tasks" href="/tasks">
-            <IonIcon icon={ellipse} />
+            <IonIcon icon={clipboardOutline} />
             <IonLabel>Tasks</IonLabel>
           </IonTabButton>
           <IonTabButton tab="profile" href="/profile">
-            <IonIcon icon={square} />
+            <IonIcon icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>
         </IonTabBar>
