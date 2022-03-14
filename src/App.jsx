@@ -35,10 +35,14 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
+import { SignIn } from "./pages/SignIn";
+import { SignUp } from "./pages/SignUp";
 
 setupIonicReact();
 
-export const App = () => (
+const PrivateRoutes = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -80,3 +84,53 @@ export const App = () => (
     </IonReactRouter>
   </IonApp>
 );
+
+const PublicRoutes = () => {
+  return (
+    <IonRouterOutlet>
+      <Route exact path="/signin">
+        <SignIn />
+      </Route>
+      <Route exact path="/signup">
+        <SignUp />
+      </Route>
+    </IonRouterOutlet>
+  );
+};
+
+export const App = () => {
+  const [userIsAuthenticated, setUserIsAuthenticated] = useState(
+    localStorage.getItem("userIsAuthenticated")
+  );
+  const auth = getAuth();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        // User is authenticated
+        setUserIsAuthenticated(true);
+        localStorage.setItem("userIsAuthenticated", true);
+      } else {
+        // User is signed out
+        setUserIsAuthenticated(false);
+        localStorage.removeItem("userIsAuthenticated", false);
+      }
+    });
+  }, [auth]);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        {userIsAuthenticated ? <PrivateRoutes /> : <PublicRoutes />}
+        <Route>
+          {userIsAuthenticated ? (
+            <Redirect to="/home" />
+          ) : (
+            <Redirect to="/signin" />
+          )}
+        </Route>
+      </IonReactRouter>
+    </IonApp>
+  );
+};

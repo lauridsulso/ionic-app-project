@@ -9,12 +9,14 @@ import { push, set } from "@firebase/database";
 import { tasksRef } from "../firebase-config";
 import { useHistory } from "react-router";
 import { AddTaskForm } from "../components/AddTaskForm";
+import { getAuth } from "firebase/auth";
 
 export const AddTask = () => {
   const history = useHistory();
+  const auth = getAuth();
 
   async function handleSubmit(newTask) {
-    newTask.uid = "0"; // default untill authorization
+    newTask.uid = auth.currentUser.uid; // default user id added
 
     const newTaskRef = push(tasksRef);
     await set(newTaskRef, newTask);

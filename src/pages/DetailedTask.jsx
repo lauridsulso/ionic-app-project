@@ -10,7 +10,13 @@ import {
   IonPage,
   IonText,
 } from "@ionic/react";
-import { calendar, call, navigateCircle, pricetag } from "ionicons/icons";
+import {
+  calendar,
+  call,
+  navigateCircle,
+  pricetag,
+  chevronBack,
+} from "ionicons/icons";
 
 import { useEffect, useState } from "react";
 import { usersRef } from "../firebase-config";
@@ -23,7 +29,8 @@ export const DetailedTask = () => {
   const [task, setTask] = useState();
   const params = useParams();
   const history = useHistory();
-
+  const fallBackImage =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
   function goBack() {
     history.goBack();
   }
@@ -78,18 +85,22 @@ export const DetailedTask = () => {
             style={{ position: "absolute", margin: "8px" }}
             onClick={goBack}
           >
-            Back
+            <IonIcon icon={chevronBack} />
           </IonButton>
           <IonImg src={task?.image} />
         </IonHeader>
         <IonItem lines="full">
           <IonAvatar slot="start">
-            <IonImg src={task?.user.image} />
+            <IonImg src={task?.user?.image ? task.user.image : fallBackImage} />
           </IonAvatar>
-          <IonText>{task?.user.name}</IonText>
+          <IonText>
+            {task?.user?.name ? task.user.name : "Ukendt bruger"}
+          </IonText>
           <IonBadge color="primary" slot="end" style={{ display: "flex" }}>
             <IonIcon icon={call} style={{ paddingRight: "4px" }} />
-            <IonText>{task?.user.phone}</IonText>
+            <IonText>
+              {task?.user?.phone ? task.user.phone : "Ikke verificeret"}
+            </IonText>
           </IonBadge>
         </IonItem>
         <IonItem lines="none">
