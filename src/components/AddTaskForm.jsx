@@ -14,10 +14,11 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
   //  -------- USESTATES for adding task data --------
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  const [imageFile, setImageFile] = useState({});
 
   useEffect(() => {
     if (task) {
@@ -35,7 +36,7 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
     const formData = {
       title: title,
       description: description,
-      image: image,
+      image: imageFile,
       date: date,
       location: location,
       price: price,
@@ -51,8 +52,8 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
       resultType: CameraResultType.DataUrl,
     };
     const image = await Camera.getPhoto(imageOptions);
-    const imageUrl = image.dataUrl;
-    setImage(imageUrl);
+    setImageFile(image);
+    setImage(image.dataUrl);
   }
 
   return (

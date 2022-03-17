@@ -6,7 +6,6 @@ import {
   IonIcon,
   IonImg,
   IonItem,
-  IonToast,
   useIonActionSheet,
   useIonAlert,
 } from "@ionic/react";
@@ -46,11 +45,6 @@ export const UserTaskCard = ({ task }) => {
     const imageRef = sRef(storage, imageName);
     await deleteObject(imageRef);
     remove(getTaskRef(task.id));
-
-    await IonToast.show({
-      text: "Post deleted!",
-      position: "center",
-    });
   }
 
   return (
