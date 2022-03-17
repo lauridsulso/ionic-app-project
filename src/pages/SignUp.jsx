@@ -58,7 +58,6 @@ export const SignUp = () => {
           <IonItem>
             <IonLabel position="stacked">Password</IonLabel>
             <IonInput
-              pattern="password"
               value={password}
               type="password"
               placeholder="Vælg et password"
