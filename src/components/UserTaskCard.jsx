@@ -1,29 +1,13 @@
-import { IonCard, IonText } from "@ionic/react";
-
-import { getAuth } from "firebase/auth";
-
-import { useEffect, useState } from "react";
+import { IonCard, IonImg, IonItem } from "@ionic/react";
 
 export const UserTaskCard = ({ task }) => {
-  const [user, setUser] = useState({});
-
-  const auth = getAuth();
-  console.log(task, "eibye");
-
-  useEffect(() => {
-    setUser(auth.currentUser);
-  }, [auth.currentUser, user]);
-
-  function Task() {
-    if (task.uid === user.uid) {
-      return (
-        <IonCard>
-          <IonText>{task.title}</IonText>
-        </IonCard>
-      );
-    } else {
-      return <></>;
-    }
-  }
-  return <Task />;
+  return (
+    <IonCard>
+      <IonImg src={task.image}></IonImg>
+      <IonItem>{task.title}</IonItem>
+      <IonItem>{task.description}</IonItem>
+      <IonItem>{task.price} kr.</IonItem>
+      <IonItem>{task.date}</IonItem>
+    </IonCard>
+  );
 };
