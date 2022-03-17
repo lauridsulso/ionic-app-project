@@ -33,13 +33,18 @@ export const SignIn = () => {
   }
 
   return (
-    <IonPage className="posts-page">
+    <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Log ind</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Log ind</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <form onSubmit={handleSubmit}>
           <IonItem>
             <IonLabel position="stacked">Mail</IonLabel>
@@ -60,7 +65,7 @@ export const SignIn = () => {
             />
           </IonItem>
           <div className="ion-padding">
-            <IonButton type="submit" expand="block">
+            <IonButton type="submit" expand="block" color="dark">
               Log ind
             </IonButton>
           </div>

@@ -69,7 +69,7 @@ const PrivateRoutes = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
             <IonIcon icon={home} />
-            <IonLabel>Home</IonLabel>
+            <IonLabel>Hjem</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tasks" href="/tasks">
             <IonIcon icon={receipt} />
@@ -77,7 +77,7 @@ const PrivateRoutes = () => (
           </IonTabButton>
           <IonTabButton tab="profile" href="/profile">
             <IonIcon icon={person} />
-            <IonLabel>Profile</IonLabel>
+            <IonLabel>Profil</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

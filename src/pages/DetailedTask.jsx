@@ -13,7 +13,7 @@ import {
 import {
   calendar,
   call,
-  navigateCircle,
+  location,
   pricetag,
   chevronBack,
 } from "ionicons/icons";
@@ -118,18 +118,19 @@ export const DetailedTask = () => {
             style={{
               display: "flex",
               flexDirection: "column",
+              paddingTop: "20px",
             }}
           >
             <IonText>
-              <IonIcon icon={pricetag} />
+              <IonIcon style={{ paddingRight: "12px" }} icon={pricetag} />
               {task?.price} kr.
             </IonText>
-            <IonText>
-              <IonIcon icon={calendar} />
+            <IonText style={{ paddingTop: "12px" }}>
+              <IonIcon style={{ paddingRight: "8px" }} icon={calendar} />
               {task?.date}
             </IonText>
-            <IonText>
-              <IonIcon icon={navigateCircle} />
+            <IonText style={{ paddingTop: "12px" }}>
+              <IonIcon style={{ paddingRight: "8px" }} icon={location} />
               {task?.location}
             </IonText>
           </div>

@@ -6,11 +6,13 @@ import {
   IonTitle,
   IonToolbar,
   IonButton,
+  IonIcon,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { tasksRef, usersRef } from "../firebase-config";
 import { onValue, get } from "firebase/database";
 import { TaskCardItem } from "../components/TaskCardItem";
+import { receiptOutline } from "ionicons/icons";
 
 export const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -28,7 +30,6 @@ export const Home = () => {
         };
         usersArray.push(user);
       });
-
       return usersArray;
     }
 
@@ -53,17 +54,21 @@ export const Home = () => {
     listenOnChange();
   }, []);
 
+  // function LoadOnce() {
+  //   window.location.reload();
+  // }
+
   return (
-    <IonPage className="tasks-page">
+    <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Hjem</IonTitle>
+          <IonTitle>Alle tasks</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Hjem</IonTitle>
+            <IonTitle size="large">Alle tasks</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList>
@@ -72,8 +77,9 @@ export const Home = () => {
           ))}
         </IonList>
         <div className="ion-padding">
-          <IonButton href="/addTask" type="submit" expand="block">
-            Tilføj opgave
+          <IonButton href="/addTask" type="submit" expand="block" color="dark">
+            <IonIcon slot="start" icon={receiptOutline} />
+            Tilføj task
           </IonButton>
         </div>
       </IonContent>

@@ -8,7 +8,7 @@ import {
 } from "@ionic/react";
 import { useState, useEffect } from "react";
 import { Camera, CameraResultType } from "@capacitor/camera";
-import { camera } from "ionicons/icons";
+import { camera, create } from "ionicons/icons";
 
 export const AddTaskForm = ({ task, handleSubmit }) => {
   //  -------- USESTATES for adding task data --------
@@ -122,6 +122,7 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
 
       <div className="ion-padding">
         <IonButton type="submit" expand="block">
+          <IonIcon slot="start" icon={create} />
           Opret opgave
         </IonButton>
       </div>

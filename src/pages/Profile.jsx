@@ -17,7 +17,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { getUserRef } from "../firebase-config";
 import { get, update } from "@firebase/database";
 import { Camera, CameraResultType } from "@capacitor/camera";
-import { camera } from "ionicons/icons";
+import { camera, saveOutline } from "ionicons/icons";
 import { uploadString, ref, getDownloadURL } from "@firebase/storage";
 import { storage } from "../firebase-config";
 
@@ -85,23 +85,25 @@ export const Profile = () => {
   }
 
   return (
-    <IonPage className="posts-page">
+    <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Profile Page</IonTitle>
+          <IonTitle>Profil</IonTitle>
           <IonButtons slot="primary">
-            <IonButton onClick={handleSignOut}>Log ud</IonButton>
+            <IonButton onClick={handleSignOut} color="danger">
+              Log ud
+            </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonItem>
-          <IonLabel>Mail:</IonLabel>
+          <IonLabel position="stacked">Mail:</IonLabel>
           {user?.email}
         </IonItem>
         <form onSubmit={handleSubmit}>
           <IonItem>
-            <IonLabel position="stacked">Name</IonLabel>
+            <IonLabel position="floating">Navn</IonLabel>
             <IonInput
               value={name}
               type="text"
@@ -110,7 +112,7 @@ export const Profile = () => {
             />
           </IonItem>
           <IonItem>
-            <IonLabel position="stacked">Telefonnummer</IonLabel>
+            <IonLabel position="floating">Telefonnummer</IonLabel>
             <IonInput
               value={phone}
               type="text"
@@ -119,8 +121,8 @@ export const Profile = () => {
             />
           </IonItem>
           <IonItem onClick={takePicture} lines="none">
-            <IonLabel>Choose Image</IonLabel>
-            <IonButton>
+            <IonLabel>Vælg profilbillede</IonLabel>
+            <IonButton color="dark">
               <IonIcon slot="icon-only" icon={camera} />
             </IonButton>
           </IonItem>
@@ -133,8 +135,9 @@ export const Profile = () => {
             />
           )}
           <div className="ion-padding">
-            <IonButton type="submit" expand="block">
-              Save User
+            <IonButton type="submit" expand="block" color="dark">
+              <IonIcon slot="start" icon={saveOutline} />
+              Gem ændringer
             </IonButton>
           </div>
         </form>

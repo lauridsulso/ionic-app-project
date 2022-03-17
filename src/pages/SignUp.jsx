@@ -8,6 +8,8 @@ import {
   IonLabel,
   IonInput,
   IonButton,
+  IonText,
+  IonCard,
 } from "@ionic/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -23,7 +25,6 @@ export const SignUp = () => {
     event.preventDefault();
     createUserWithEmailAndPassword(auth, mail, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
       })
@@ -32,35 +33,41 @@ export const SignUp = () => {
       });
   }
   return (
-    <IonPage className="posts-page">
+    <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Opret bruger</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Opret bruger</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <form onSubmit={handleSubmit}>
           <IonItem>
             <IonLabel position="stacked">Mail</IonLabel>
             <IonInput
               value={mail}
               type="email"
-              placeholder="Type your mail"
+              placeholder="Skriv din mail"
               onIonChange={(e) => setMail(e.target.value)}
             />
           </IonItem>
           <IonItem>
             <IonLabel position="stacked">Password</IonLabel>
             <IonInput
+              pattern="password"
               value={password}
               type="password"
-              placeholder="Type your password"
+              placeholder="Vælg et password"
               onIonChange={(e) => setPassword(e.target.value)}
             />
           </IonItem>
           <div className="ion-padding">
-            <IonButton type="submit" expand="block">
-              Opret bruger
+            <IonButton type="submit" expand="block" fill="solid" color="dark">
+              Opret
             </IonButton>
           </div>
           <div className="ion-text-center">

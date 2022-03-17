@@ -16,7 +16,7 @@ export const AddTask = () => {
   const auth = getAuth();
 
   async function handleSubmit(newTask) {
-    newTask.uid = auth.currentUser.uid; // default user id added
+    newTask.uid = auth.currentUser.uid;
 
     const newTaskRef = push(tasksRef);
     await set(newTaskRef, newTask);
@@ -28,13 +28,13 @@ export const AddTask = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>New Task</IonTitle>
+          <IonTitle>Opret din task</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">New task</IonTitle>
+            <IonTitle size="large">Opret din task</IonTitle>
           </IonToolbar>
         </IonHeader>
         <AddTaskForm handleSubmit={handleSubmit} />
