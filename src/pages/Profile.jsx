@@ -147,7 +147,7 @@ export const Profile = () => {
           </IonItem>
 
           <div className="ion-padding">
-            <IonButton type="submit" expand="block" color="dark">
+            <IonButton type="submit" expand="block">
               <IonIcon slot="start" icon={saveOutline} />
               Gem ændringer
             </IonButton>

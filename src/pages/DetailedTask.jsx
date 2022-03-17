@@ -82,7 +82,7 @@ export const DetailedTask = () => {
           <IonButton
             color="light"
             fill="solid"
-            style={{ position: "absolute", margin: "8px" }}
+            style={{ position: "absolute", margin: "16px" }}
             onClick={goBack}
           >
             <IonIcon icon={chevronBack} />

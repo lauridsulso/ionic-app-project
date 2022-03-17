@@ -8,12 +8,14 @@ import {
   IonLabel,
   IonInput,
   IonButton,
+  IonText,
 } from "@ionic/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export const SignUp = () => {
+  const [hasError, setError] = useState(false);
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -28,8 +30,10 @@ export const SignUp = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError(true);
       });
   }
+
   return (
     <IonPage>
       <IonHeader>
@@ -63,10 +67,15 @@ export const SignUp = () => {
             />
           </IonItem>
           <div className="ion-padding">
-            <IonButton type="submit" expand="block" fill="solid" color="dark">
+            <IonButton type="submit" expand="block" fill="solid">
               Opret
             </IonButton>
           </div>
+          {hasError && (
+            <div className="ion-text-center">
+              <IonText color="danger">Fejl i signup. Prøv igen ...</IonText>
+            </div>
+          )}
           <div className="ion-text-center">
             <IonButton
               size="small"

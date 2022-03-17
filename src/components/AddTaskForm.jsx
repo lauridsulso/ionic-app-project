@@ -120,12 +120,18 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
       {image && (
         <IonImg className="ion-padding" src={image} onClick={takePicture} />
       )}
-
       <div className="ion-padding">
-        <IonButton type="submit" expand="block">
-          <IonIcon slot="start" icon={create} />
-          Opret opgave
-        </IonButton>
+        {image && title && description && date && location && price ? (
+          <IonButton expand="block">
+            <IonIcon slot="start" icon={create} />
+            Opret opgave
+          </IonButton>
+        ) : (
+          <IonButton type="submit" expand="block" disabled>
+            <IonIcon slot="start" icon={create} />
+            Opret opgave
+          </IonButton>
+        )}
       </div>
     </form>
   );

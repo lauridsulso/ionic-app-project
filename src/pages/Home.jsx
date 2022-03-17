@@ -52,13 +52,8 @@ export const Home = () => {
         setTasks(tasksArray.reverse());
       });
     }
-
     listenOnChange();
   }, []);
-
-  // function LoadOnce() {
-  //   window.location.reload();
-  // }
 
   function goToAddTask() {
     history.replace("/addtask");
@@ -78,7 +73,7 @@ export const Home = () => {
             <IonButton
               onClick={goToAddTask}
               className="ion-padding"
-              style={{ float: "right" }}
+              style={{ float: "right", paddingTop: "9px" }}
             >
               Tilføj task
               <IonIcon slot="end" icon={add}></IonIcon>

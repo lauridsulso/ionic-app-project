@@ -8,12 +8,14 @@ import {
   IonLabel,
   IonInput,
   IonButton,
+  IonText,
 } from "@ionic/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export const SignIn = () => {
+  const [hasError, setError] = useState(false);
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -23,12 +25,12 @@ export const SignIn = () => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, mail, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
+        setError(true);
       });
   }
 
@@ -65,10 +67,15 @@ export const SignIn = () => {
             />
           </IonItem>
           <div className="ion-padding">
-            <IonButton type="submit" expand="block" color="dark">
+            <IonButton type="submit" expand="block">
               Log ind
             </IonButton>
           </div>
+          {hasError && (
+            <div className="ion-text-center">
+              <IonText color="danger">Fejl i signin. Prøv igen ...</IonText>
+            </div>
+          )}
           <div className="ion-text-center">
             <IonButton
               size="small"
