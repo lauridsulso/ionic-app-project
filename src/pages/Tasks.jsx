@@ -5,11 +5,15 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonText,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { tasksRef, usersRef } from "../firebase-config";
 import { onValue, get, orderByChild, query, equalTo } from "firebase/database";
-
+import { add } from "ionicons/icons";
+import { useHistory } from "react-router-dom";
 import { UserTaskCard } from "../components/UserTaskCard";
 import { getAuth } from "@firebase/auth";
 
@@ -17,6 +21,11 @@ export const Tasks = () => {
   const [tasks, setTasks] = useState([]);
   const [user, setUser] = useState({});
   const auth = getAuth();
+  const history = useHistory();
+
+  function goToAddTask() {
+    history.replace("/addtask");
+  }
 
   useEffect(() => {
     setUser(auth.currentUser);
@@ -76,7 +85,23 @@ export const Tasks = () => {
           {tasks.length > 0 ? (
             tasks.map((task) => <UserTaskCard task={task} key={task.id} />)
           ) : (
-            <div>Works</div>
+            <div
+              className="ion-padding"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <IonText style={{ color: "grey" }}>
+                Du har i øjeblikket ingen aktive tasks, tilføj en for at begynde
+                ...
+              </IonText>
+              <IonButton
+                size="large"
+                style={{ paddingTop: "14px" }}
+                onClick={goToAddTask}
+              >
+                <IonIcon slot="end" icon={add} />
+                Tilføj her
+              </IonButton>
+            </div>
           )}
         </IonList>
       </IonContent>

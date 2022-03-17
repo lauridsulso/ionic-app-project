@@ -12,10 +12,12 @@ import { useEffect, useState } from "react";
 import { tasksRef, usersRef } from "../firebase-config";
 import { onValue, get } from "firebase/database";
 import { TaskCardItem } from "../components/TaskCardItem";
-import { receiptOutline } from "ionicons/icons";
+import { add } from "ionicons/icons";
+import { useHistory } from "react-router-dom";
 
 export const Home = () => {
   const [tasks, setTasks] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function getUsers() {
@@ -58,6 +60,10 @@ export const Home = () => {
   //   window.location.reload();
   // }
 
+  function goToAddTask() {
+    history.replace("/addtask");
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -69,6 +75,14 @@ export const Home = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Alle tasks</IonTitle>
+            <IonButton
+              onClick={goToAddTask}
+              className="ion-padding"
+              style={{ float: "right" }}
+            >
+              Tilføj task
+              <IonIcon slot="end" icon={add}></IonIcon>
+            </IonButton>
           </IonToolbar>
         </IonHeader>
 
@@ -77,23 +91,6 @@ export const Home = () => {
             <TaskCardItem task={task} key={task.id} />
           ))}
         </IonList>
-        <div className="ion-padding">
-          <IonButton
-            style={{
-              position: "fixed",
-              bottom: "10px",
-              right: "9px",
-              left: "9px",
-            }}
-            href="/addTask"
-            type="submit"
-            expand="block"
-            color="dark"
-          >
-            <IonIcon slot="start" icon={receiptOutline} />
-            Tilføj task
-          </IonButton>
-        </div>
       </IonContent>
     </IonPage>
   );
