@@ -11,6 +11,7 @@ import {
   IonInput,
   IonIcon,
   IonImg,
+  IonAvatar,
 } from "@ionic/react";
 import { useState, useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
@@ -28,6 +29,8 @@ export const Profile = () => {
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState("");
   const [imageFile, setImageFile] = useState({});
+  const fallBackImage =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
 
   useEffect(() => {
     setUser(auth.currentUser);
@@ -97,7 +100,29 @@ export const Profile = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonItem>
+        <IonAvatar
+          style={{
+            width: "100px",
+            height: "100px",
+            margin: "auto",
+            marginTop: "50px",
+          }}
+        >
+          <IonImg src={image ? image : fallBackImage} onClick={takePicture} />
+        </IonAvatar>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <IonButton
+            className="ion-padding"
+            style={{ alignSelf: "center" }}
+            onClick={takePicture}
+            lines="none"
+            fill="outline"
+          >
+            <IonLabel>Vælg profilbillede</IonLabel>
+            <IonIcon slot="end" icon={camera} />
+          </IonButton>
+        </div>
+        <IonItem style={{ marginTop: "50px" }}>
           <IonLabel position="stacked">Mail:</IonLabel>
           {user?.email}
         </IonItem>
@@ -120,20 +145,7 @@ export const Profile = () => {
               onIonChange={(e) => setPhone(e.target.value)}
             />
           </IonItem>
-          <IonItem onClick={takePicture} lines="none">
-            <IonLabel>Vælg profilbillede</IonLabel>
-            <IonButton color="dark">
-              <IonIcon slot="icon-only" icon={camera} />
-            </IonButton>
-          </IonItem>
-          {image && (
-            <IonImg
-              style={{ borderRadius: "50%" }}
-              className="ion-padding"
-              src={image}
-              onClick={takePicture}
-            />
-          )}
+
           <div className="ion-padding">
             <IonButton type="submit" expand="block" color="dark">
               <IonIcon slot="start" icon={saveOutline} />

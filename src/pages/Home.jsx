@@ -71,13 +71,25 @@ export const Home = () => {
             <IonTitle size="large">Alle tasks</IonTitle>
           </IonToolbar>
         </IonHeader>
+
         <IonList>
           {tasks.map((task) => (
             <TaskCardItem task={task} key={task.id} />
           ))}
         </IonList>
         <div className="ion-padding">
-          <IonButton href="/addTask" type="submit" expand="block" color="dark">
+          <IonButton
+            style={{
+              position: "fixed",
+              bottom: "10px",
+              right: "9px",
+              left: "9px",
+            }}
+            href="/addTask"
+            type="submit"
+            expand="block"
+            color="dark"
+          >
             <IonIcon slot="start" icon={receiptOutline} />
             Tilføj task
           </IonButton>
