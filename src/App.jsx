@@ -43,60 +43,54 @@ import { SignUp } from "./pages/SignUp";
 setupIonicReact();
 
 const PrivateRoutes = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/tasks">
-            <Tasks />
-          </Route>
-          <Route path="/task/:id">
-            <DetailedTask />
-          </Route>
-          <Route exact path="/addTask">
-            <AddTask />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home} />
-            <IonLabel>Hjem</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tasks" href="/tasks">
-            <IonIcon icon={receipt} />
-            <IonLabel>Dine tasks</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="profile" href="/profile">
-            <IonIcon icon={person} />
-            <IonLabel>Profil</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
-
-const PublicRoutes = () => {
-  return (
+  <IonTabs>
     <IonRouterOutlet>
-      <Route exact path="/signin">
-        <SignIn />
+      <Route exact path="/home">
+        <Home />
       </Route>
-      <Route exact path="/signup">
-        <SignUp />
+      <Route exact path="/tasks">
+        <Tasks />
+      </Route>
+      <Route path="/task/:id">
+        <DetailedTask />
+      </Route>
+      <Route exact path="/addTask">
+        <AddTask />
+      </Route>
+      <Route path="/profile">
+        <Profile />
+      </Route>
+      <Route exact path="/">
+        <Redirect to="/home" />
       </Route>
     </IonRouterOutlet>
-  );
-};
+    <IonTabBar slot="bottom">
+      <IonTabButton tab="home" href="/home">
+        <IonIcon icon={home} />
+        <IonLabel>Hjem</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="tasks" href="/tasks">
+        <IonIcon icon={receipt} />
+        <IonLabel>Dine tasks</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="profile" href="/profile">
+        <IonIcon icon={person} />
+        <IonLabel>Profil</IonLabel>
+      </IonTabButton>
+    </IonTabBar>
+  </IonTabs>
+);
+
+const PublicRoutes = () => (
+  <IonRouterOutlet>
+    <Route exact path="/signin">
+      <SignIn />
+    </Route>
+    <Route exact path="/signup">
+      <SignUp />
+    </Route>
+  </IonRouterOutlet>
+);
 
 export const App = () => {
   const [userIsAuthenticated, setUserIsAuthenticated] = useState(
