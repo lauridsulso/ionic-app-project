@@ -29,8 +29,11 @@ export const DetailedTask = () => {
   const [task, setTask] = useState();
   const params = useParams();
   const history = useHistory();
-  const fallBackImage =
+  const avatarFallback =
     "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+  const headerImgFallback =
+    "https://html.com/wp-content/uploads/flamingo-fallback.jpg";
+
   function goBack() {
     history.goBack();
   }
@@ -87,11 +90,13 @@ export const DetailedTask = () => {
           >
             <IonIcon icon={chevronBack} />
           </IonButton>
-          <IonImg src={task?.image} />
+          <IonImg src={task?.image ? task.image : headerImgFallback} />
         </IonHeader>
         <IonItem lines="full">
           <IonAvatar slot="start">
-            <IonImg src={task?.user?.image ? task.user.image : fallBackImage} />
+            <IonImg
+              src={task?.user?.image ? task.user.image : avatarFallback}
+            />
           </IonAvatar>
           <IonText>
             {task?.user?.name ? task.user.name : "Ukendt bruger"}

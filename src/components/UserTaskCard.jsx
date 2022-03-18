@@ -8,20 +8,26 @@ import {
   IonItem,
   useIonActionSheet,
   useIonAlert,
+  useIonModal,
 } from "@ionic/react";
 import { deleteObject, ref as sRef } from "firebase/storage";
 import { ellipsisHorizontalOutline } from "ionicons/icons";
 import { getTaskRef, storage } from "../firebase-config";
+import { UpdateTaskModal } from "./UpdateTaskModal";
 
 export const UserTaskCard = ({ task }) => {
   const [presentActionSheet] = useIonActionSheet();
   const [presentDeleteDialog] = useIonAlert();
+  const [openUpdateModal, dismissUpdateModal] = useIonModal(
+    <UpdateTaskModal task={task} dismiss={handleDismissUpdateModal} />
+  );
   const currentUserId = getAuth().currentUser.uid;
 
   function showActionSheet(event) {
     event.preventDefault();
     presentActionSheet({
       buttons: [
+        { text: "Rediger", handler: openUpdateModal },
         { text: "Slet task", role: "destructive", handler: showDeleteDialog },
         { text: "Fortryd", role: "cancel" },
       ],
@@ -45,6 +51,10 @@ export const UserTaskCard = ({ task }) => {
     const imageRef = sRef(storage, imageName);
     await deleteObject(imageRef);
     remove(getTaskRef(task.id));
+  }
+
+  function handleDismissUpdateModal() {
+    dismissUpdateModal();
   }
 
   return (
