@@ -111,8 +111,7 @@ Igennem dette projekt har vi haft fokus på component baseret programmering, der
 
 
 ### APPLICATION PREVIEW 👀
-<img width="386" alt="image" src="https://user-images.githubusercontent.com/60382640/159180044-5623237f-cb41-428b-85c5-e17b443f60c9.png">
-<img width="389" alt="image" src="https://user-images.githubusercontent.com/60382640/159180062-020d14a3-4a4b-4c98-b525-2a01d202997c.png">
+<img width="386" alt="image" src="https://user-images.githubusercontent.com/60382640/159180044-5623237f-cb41-428b-85c5-e17b443f60c9.png"> <img width="389" alt="image" src="https://user-images.githubusercontent.com/60382640/159180062-020d14a3-4a4b-4c98-b525-2a01d202997c.png">
 <img width="387" alt="image" src="https://user-images.githubusercontent.com/60382640/159180073-ab55c47f-2dc8-4893-92f5-c2e455845447.png">
 <img width="382" alt="image" src="https://user-images.githubusercontent.com/60382640/159180111-7dc3205f-2582-4745-a561-3c5c5bf2333f.png">
 
