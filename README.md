@@ -22,10 +22,12 @@ $ ionic cap run ios
 or
 $ ionic cap run ios -l --external
 
-#### [Reminder: Husk at give permissions til iOS på xcode for at benytte native camera plugin]
+[Reminder: Husk at give permissions til iOS på xcode for at benytte native camera plugin]
+```
 NSCameraUsageDescription (Privacy - Camera Usage Description)
 NSPhotoLibraryAddUsageDescription (Privacy - Photo Library Additions Usage Description)
 NSPhotoLibraryUsageDescription (Privacy - Photo Library Usage Description)
+```
 
 ---------------------------------------------------------------------------------  
 
@@ -38,7 +40,7 @@ or
 $ ionic capacitor run android -l --external
 [Vælg et android device i Android SDK]
 
-#### [Reminder: Husk at give permissions i Android manifest, hvis storage skal virke på native camera]:
+[Reminder: Husk at give permissions i Android manifest, hvis storage skal virke på native camera]:
 
 ```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
