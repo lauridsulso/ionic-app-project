@@ -32,7 +32,7 @@ or
 $ ionic cap run ios -l --external
 ```
 
-[Reminder: Husk at give permissions til iOS på xcode for at benytte native camera plugin]
+**Reminder: Husk at give permissions til iOS på xcode for at benytte native camera plugin**
 ```
 NSCameraUsageDescription (Privacy - Camera Usage Description)
 NSPhotoLibraryAddUsageDescription (Privacy - Photo Library Additions Usage Description)
@@ -53,9 +53,9 @@ or
 ```
 $ ionic capacitor run android -l --external
 ```
-[Vælg et android device i Android SDK]
+ _Vælg et android device i Android SDK_
 
-[Reminder: Husk at give permissions i Android manifest, hvis storage skal virke på native camera]:
+**Reminder: Husk at give permissions i Android manifest, hvis storage skal virke på native camera**
 
 ```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -103,14 +103,16 @@ På længere sigt kunne vi godt have tænkt os at lave mere generiske komponente
 
 Igennem dette projekt har vi haft fokus på component baseret programmering, derudover har vi:
 
-- Sat/holdt data i hooks ved hjælp af useState, loadet og håndteret data ved brug af useEffect.
+- Sat/holdt data i hooks ved hjælp af useState og props, samt loadet og håndteret data ved brug af useEffect.
 - Lavet en single page application, som navigere med react-router og useHistory.
 - Verificeret brugere, gemt data med firebase.
-- Brugt capacitor til native plugins som: Kamera, Splashscreen og Toasts
+- Brugt capacitor til native plugins som: Camera, Splashscreen og Toasts
 
 
 
 ### APPLICATION PREVIEW 👀
-![image](https://user-images.githubusercontent.com/56149568/159179525-4de0f1e1-44e4-4a2f-8e5c-3aab56181f4f.png)
-![image](https://user-images.githubusercontent.com/56149568/159179555-c7c7ee01-348a-4b15-a76b-ddfa25bc91b2.png)
-![image](https://user-images.githubusercontent.com/56149568/159179572-4165f4ab-e65e-4be7-8b18-5b2db393b500.png)
+<img width="386" alt="image" src="https://user-images.githubusercontent.com/60382640/159180044-5623237f-cb41-428b-85c5-e17b443f60c9.png">
+<img width="389" alt="image" src="https://user-images.githubusercontent.com/60382640/159180062-020d14a3-4a4b-4c98-b525-2a01d202997c.png">
+<img width="387" alt="image" src="https://user-images.githubusercontent.com/60382640/159180073-ab55c47f-2dc8-4893-92f5-c2e455845447.png">
+<img width="382" alt="image" src="https://user-images.githubusercontent.com/60382640/159180111-7dc3205f-2582-4745-a561-3c5c5bf2333f.png">
+
