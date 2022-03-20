@@ -11,7 +11,8 @@ $ npm i
 $ npm run start or ionic serve
 [Åben med iPhone 12 Pro screen size]
 
----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------  
+
 
 ### ON IOS:
 $ npm i
@@ -26,7 +27,8 @@ NSCameraUsageDescription (Privacy - Camera Usage Description)
 NSPhotoLibraryAddUsageDescription (Privacy - Photo Library Additions Usage Description)
 NSPhotoLibraryUsageDescription (Privacy - Photo Library Usage Description)
 
----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------  
+
 
 ### ON ANDROID:
 $ npm i
@@ -42,9 +44,12 @@ $ ionic capacitor run android -l --external
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------  
 
-Efterfølgende skal der oprettes en bruger, med et hvilket som helst password og email.
+
+Efterfølgende skal der oprettes en bruger, med et hvilket som helst password og email.  
+  
+  
 
 
 ## Hvad er konceptet?
@@ -59,7 +64,9 @@ Applikationens ene use case består af en bruger, som skal have løst en opgave.
 
 Det andet use case består af en bruger, som gerne vil tjene penge ved at klare opgaver. Applikationen kan anvendes af både privatpersoner såvel som mindre og større virksomheder.
 
-Idéelt set vil applikationen også indeholde en chat funktion, så de to interessenter kan komme i kontakt med hinanden. - Dette er klart noget, der ville være relevant at implementere efterfølgende. Derudover ville implementationen af noget som stripe være optimalt, så vi stod for en sikker betaling mellem de to parter. 
+Idéelt set vil applikationen også indeholde en chat funktion, så de to interessenter kan komme i kontakt med hinanden. - Dette er klart noget, der ville være relevant at implementere efterfølgende. Derudover ville implementationen af noget som stripe være optimalt, så vi stod for en sikker betaling mellem de to parter.   
+  
+  
 
 ## Design choices:
 
