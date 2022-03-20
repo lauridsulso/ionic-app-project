@@ -1,15 +1,17 @@
-# ionic-app-project
-Ionic app project
-
 ## HOW TO GAIN PROJECT ACCESS:
-
-### CLONE: https://github.com/emilbergs/ionic-app-project
+CLONE: https://github.com/emilbergs/ionic-app-project
 
 
 ### IN BROWSER:
 ```
 $ npm i
-$ npm run start or ionic serve
+```
+```
+$ npm run start
+```
+or 
+```
+$ ionic serve
 ```
 [Åben med iPhone 12 Pro screen size]
 
@@ -83,7 +85,7 @@ Idéelt set vil applikationen også indeholde en chat funktion, så de to intere
   
   
 
-## DESIGN CHOICES!
+## DESIGN CHOICES
 
 Ved at benytte os af et user interface library, i dette tilfælde Ionic’s pre-styled components, sikrer vi i høj grad et gennemtestet design. Vi må antage at komponenterne er designet af folk med sans for UI/UX, mens komponenterne ligeledes konstant testes af tusindvis af brugere, på tværs af forskellige projekter og platforme. Ydermere sikrer vi et gennemgående design tema på tværs af de forskellige komponenter, således at den røde tråd holdes i designet.
 
@@ -93,7 +95,7 @@ Vi har gjort brug af ikoner, for at guide brugeren, og give dem bedre indblik i 
 
 Vi har valgt at bruge en tab bar navigation med passende ikoner, for at brugerne nemt kan navigere rundt i applikationens funktioner.
 
-PROJECT STRUCTURE AND “THINKING IN REACT”:
+## PROJECT STRUCTURE AND “THINKING IN REACT”
 
 Projektets struktur er primært opdelt i components og pages. Alle vores pages er lagt ind under samme mappe, hvor alle er en IonPage. Derudover har vi flere komponenter som dels står for forskellig funktionalitet eller design.
 
@@ -101,10 +103,10 @@ På længere sigt kunne vi godt have tænkt os at lave mere generiske komponente
 
 Igennem dette projekt har vi haft fokus på component baseret programmering, derudover har vi:
 
-Sat/holdt data i hooks ved hjælp af useState, loadet og håndteret data ved brug af useEffect.
-Lavet en single page application, som navigere med react-router og useHistory.
-Verificeret brugere, gemt data med firebase.
-Brugt capacitor til native plugins som: Kamera, Splashscreen og Toasts
+- Sat/holdt data i hooks ved hjælp af useState, loadet og håndteret data ved brug af useEffect.
+- Lavet en single page application, som navigere med react-router og useHistory.
+- Verificeret brugere, gemt data med firebase.
+- Brugt capacitor til native plugins som: Kamera, Splashscreen og Toasts
 
 
 
