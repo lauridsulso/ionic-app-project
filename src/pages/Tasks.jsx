@@ -99,7 +99,7 @@ export const Tasks = () => {
                 onClick={goToAddTask}
               >
                 <IonIcon slot="end" icon={add} />
-                Tilføj her
+                Opret
               </IonButton>
             </div>
           )}

@@ -12,6 +12,7 @@ import { push, set } from "firebase/database";
 import { storage } from "../firebase-config";
 import { uploadString, ref, getDownloadURL } from "@firebase/storage";
 import { getAuth } from "firebase/auth";
+import { Toast } from "@capacitor/toast";
 
 export const AddTask = () => {
   const history = useHistory();
@@ -31,6 +32,12 @@ export const AddTask = () => {
         console.log(error);
       })
       .finally(() => {});
+
+    await Toast.show({
+      text: "Task oprettet!",
+      position: "center",
+    });
+
     history.replace("/home");
   }
 

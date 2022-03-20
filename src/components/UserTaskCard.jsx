@@ -14,6 +14,7 @@ import { deleteObject, ref as sRef } from "firebase/storage";
 import { ellipsisHorizontalOutline } from "ionicons/icons";
 import { getTaskRef, storage } from "../firebase-config";
 import { UpdateTaskModal } from "./UpdateTaskModal";
+import { Toast } from "@capacitor/toast";
 
 export const UserTaskCard = ({ task }) => {
   const [presentActionSheet] = useIonActionSheet();
@@ -51,6 +52,11 @@ export const UserTaskCard = ({ task }) => {
     const imageRef = sRef(storage, imageName);
     await deleteObject(imageRef);
     remove(getTaskRef(task.id));
+
+    await Toast.show({
+      text: "Task slettet!",
+      position: "center",
+    });
   }
 
   function handleDismissUpdateModal() {

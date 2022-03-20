@@ -10,6 +10,7 @@ import { getTaskRef, storage } from "../firebase-config";
 import { update } from "firebase/database";
 import { uploadString, ref, getDownloadURL } from "@firebase/storage";
 import { AddTaskForm } from "./AddTaskForm";
+import { Toast } from "@capacitor/toast";
 
 export const UpdateTaskModal = ({ task, dismiss }) => {
   async function updateTask(taskToUpdate) {
@@ -21,6 +22,12 @@ export const UpdateTaskModal = ({ task, dismiss }) => {
     }
     console.log(taskToUpdate);
     await update(getTaskRef(task.id), taskToUpdate);
+
+    await Toast.show({
+      text: "Task opdateret!",
+      position: "center",
+    });
+
     dismiss();
   }
 
@@ -36,9 +43,9 @@ export const UpdateTaskModal = ({ task, dismiss }) => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="secondary">
-            <IonButton onClick={() => dismiss()}>Cancel</IonButton>
+            <IonButton onClick={() => dismiss()}>Fortryd</IonButton>
           </IonButtons>
-          <IonTitle>Edit Task</IonTitle>
+          <IonTitle>Rediger task</IonTitle>
         </IonToolbar>
       </IonHeader>
       <AddTaskForm task={task} handleSubmit={updateTask} />

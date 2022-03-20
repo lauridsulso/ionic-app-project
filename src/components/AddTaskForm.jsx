@@ -31,7 +31,7 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
     }
   }, [task]);
 
-  function submitTask(event) {
+  async function submitTask(event) {
     event.preventDefault();
     const formData = {
       title: title,
@@ -68,7 +68,6 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
           onIonChange={(e) => setTitle(e.target.value)}
         />
       </IonItem>
-
       <IonItem>
         <IonLabel position="stacked">
           Beskriv din opgave mere detaljeret
@@ -79,7 +78,6 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
           onIonChange={(e) => setDescription(e.target.value)}
         ></IonInput>
       </IonItem>
-
       <IonItem>
         <IonLabel position="stacked">Hvornår skal opgaven løses?</IonLabel>
         <IonInput
@@ -89,7 +87,6 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
           onIonChange={(e) => setDate(e.target.value)}
         ></IonInput>
       </IonItem>
-
       <IonItem>
         <IonLabel position="stacked">Hvorhenne skal opgaven løses?</IonLabel>
         <IonInput
@@ -98,7 +95,6 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
           onIonChange={(e) => setLocation(e.target.value)}
         />
       </IonItem>
-
       <IonItem>
         <IonLabel position="stacked">
           Hvor meget betaler opgaven i DKK?
@@ -110,7 +106,6 @@ export const AddTaskForm = ({ task, handleSubmit }) => {
           onIonChange={(e) => setPrice(e.target.value)}
         ></IonInput>
       </IonItem>
-
       <IonItem onClick={takePicture}>
         <IonLabel>Vælg billede</IonLabel>
         <IonButton>

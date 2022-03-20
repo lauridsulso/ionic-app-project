@@ -21,6 +21,7 @@ import { Camera, CameraResultType } from "@capacitor/camera";
 import { camera, saveOutline } from "ionicons/icons";
 import { uploadString, ref, getDownloadURL } from "@firebase/storage";
 import { storage } from "../firebase-config";
+import { Toast } from "@capacitor/toast";
 
 export const Profile = () => {
   const auth = getAuth();
@@ -64,6 +65,11 @@ export const Profile = () => {
       const imageUrl = await uploadImage();
       userToUpdate.image = imageUrl;
     }
+
+    await Toast.show({
+      text: "Profil opdateret!",
+      position: "center",
+    });
 
     await update(getUserRef(user.uid), userToUpdate);
   }

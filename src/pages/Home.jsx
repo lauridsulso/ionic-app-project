@@ -67,20 +67,12 @@ export const Home = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Alle tasks</IonTitle>
-            <IonButton
-              onClick={goToAddTask}
-              className="ion-padding"
-              style={{ float: "right", paddingTop: "9px" }}
-            >
-              Tilføj task
-              <IonIcon slot="end" icon={add}></IonIcon>
-            </IonButton>
-          </IonToolbar>
-        </IonHeader>
-
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <IonButton onClick={goToAddTask} className="ion-padding">
+            Opret en task
+            <IonIcon slot="end" icon={add} />
+          </IonButton>
+        </div>
         <IonList>
           {tasks.map((task) => (
             <TaskCardItem task={task} key={task.id} />

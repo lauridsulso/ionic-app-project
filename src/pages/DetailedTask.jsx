@@ -31,8 +31,6 @@ export const DetailedTask = () => {
   const history = useHistory();
   const avatarFallback =
     "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
-  const headerImgFallback =
-    "https://html.com/wp-content/uploads/flamingo-fallback.jpg";
 
   function goBack() {
     history.goBack();
@@ -85,12 +83,16 @@ export const DetailedTask = () => {
           <IonButton
             color="light"
             fill="solid"
-            style={{ position: "absolute", margin: "16px" }}
+            style={{
+              position: "absolute",
+              marginTop: "24px",
+              marginLeft: "24px",
+            }}
             onClick={goBack}
           >
             <IonIcon icon={chevronBack} />
           </IonButton>
-          <IonImg src={task?.image ? task.image : headerImgFallback} />
+          <IonImg src={task?.image} />
         </IonHeader>
         <IonItem lines="full">
           <IonAvatar slot="start">
